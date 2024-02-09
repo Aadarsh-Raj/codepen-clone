@@ -3,15 +3,17 @@ import Footer from './Footer'
 import "./Style/home.css"
 import Login from './Login'
 import { Link } from 'react-router-dom'
+import SearchBar from './SearchBar'
 const Home = () => {
   return (
     <>
    <div className="home">
     <div className="home-page-header">
-        This is Home Page
+        <SearchBar />
     </div>
     <div>
-      <Link to={"/login"}>Login</Link>
+      Please Login to Check data
+
     </div>
     <footer>
         <Footer />

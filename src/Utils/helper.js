@@ -1,11 +1,46 @@
-import {GoogleAuthProvider, signInWithRedirect} from "firebase/auth"
-import { auth } from "../Config/firebase.config"
+import {
+  GoogleAuthProvider,
+  signInWithPopup,
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
+  signOut,
+} from "firebase/auth";
+import { auth, googleProvider } from "../Config/firebase.config";
+// sign up with email
+export const signUPWithEmail = async (email, password)=>{
+        try {
+            await createUserWithEmailAndPassword(auth, email, password);
+        } catch (error) {
+            alert("Something Went Wrong");
+        }
+}
+// sign in with email
 
-const googleProvider = new GoogleAuthProvider();
+export const signInWithEmail = async (email, password)=>{
+  try{
+    await signInWithEmailAndPassword (auth, email, password);
+    alert("You are logged In successfully.");
+  }catch{
+    alert("Something Went Wrong");
+  }
+}
+// sign in with google
+export const signInWithGoogle = async () => {
 
-export const signInWithGoogle = async ()=>{
-    console.log("clicked");
-        await signInWithRedirect(auth, googleProvider).then(userCred => {
-            window.location.reload();
-        })
+  try {
+    await signInWithPopup(auth, googleProvider);
+    alert("You are logged In successfully.");
+  } catch (error) {
+    alert("Something Went Wrong");
+  }
+};
+// logout user
+export const logoutUser = async ()=>{
+
+    try{
+        await signOut(auth);
+        alert("Your are logged In");
+    }catch(err){
+        alert("Something Went Wrong");
+    }
 }

@@ -16,19 +16,20 @@ import {
   useNavigate,
 } from "react-router-dom";
 import { auth } from "./Config/firebase.config";
-
+import Editor from "./Components/EditorPage";
+import { UserContext, UserFunction } from "./Context/UserContext";
+import ProfilePage from "./Components/ProfilePage";
+import Signup from "./Components/Signup";
 function App() {
-  // const navigate = useNavigate();
-  // useEffect(() => {
-  //   const unsubscribe = auth.onAuthStateChanged((userCred) => {
-  //     if (userCred?.providerData[0].email) {
-  //       console.log(userCred);
-  //     } else {
-  //       navigate("/home", { replace: true });
-  //     }
-  //   });
-    
-  // }, []);
+  const userCtx = UserFunction();
+  const navigate = useNavigate();
+  function PrivateRoute({ element, authenticated, fallbackPath }) {
+  return authenticated ? (
+    element
+  ) : (
+    <Navigate to={fallbackPath} replace state={{ from: fallbackPath }} />
+  );
+}
 
   const router = createBrowserRouter([
     {
@@ -41,30 +42,35 @@ function App() {
     },
     {
       path: "/login",
-      element: <Login />,
+      element:<Login />,
     },
     {
-      path: "/singup",
-      element: <Login />,
+      path: "/signup",
+      element: <Signup />,
     },
     {
-      path: "/*",
-      element:<Navigate to={<Home />} />
+      path:"/editor",
+      element:<Editor />
+    },
+    {
+      path:"/profile",
+      element:<ProfilePage />
     }
   ]);
 
   return (
     <>
+      <UserContext>
+
       <main className="main">
-        <aside className="main-left-container">
           <Sidebar />
-        </aside>
         <section className="main-right-container">
           <RouterProvider router={router}>
             <Outlet />
           </RouterProvider>
         </section>
       </main>
+      </UserContext>
       
     </>
   );

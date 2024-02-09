@@ -1,0 +1,37 @@
+.language-editor{
+    display: flex;
+    flex-direction: column;
+}
+.editor-header{
+    display: flex;
+    justify-content: space-between;
+    background-color: black;
+    padding:0.7rem 1rem;
+}
+
+.language-heading svg{
+    height: 20px;
+    
+}
+.language-heading{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding:0 1rem ;
+}
+.editor-functions{
+    display: flex;
+    gap: 1rem;
+    
+}
+.editor-header button{
+    background-color: gray;
+    padding:0.1rem 0.25rem;
+    border-radius: 0.2rem;
+    display: flex;
+    align-items: center;
+}
+.editor-header button svg{
+    width: 15px;
+    height: 15px;
+}
