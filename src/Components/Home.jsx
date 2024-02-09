@@ -4,15 +4,21 @@ import "./Style/home.css"
 import Login from './Login'
 import { Link } from 'react-router-dom'
 import SearchBar from './SearchBar'
+import { UserFunction } from '../Context/UserContext'
+import Sidebar from './Sidebar'
 const Home = () => {
+  const userCtx = UserFunction();
   return (
     <>
    <div className="home">
+    <Sidebar />
     <div className="home-page-header">
         <SearchBar />
     </div>
-    <div>
-      Please Login to Check data
+    <div style={{textAlign:"center"}}>
+      {
+        !userCtx.user ? (<div> Please Log in to use Editor </div>) : (<div> Thanks for using us, {userCtx.displayName} </div>)
+      }
 
     </div>
     <footer>

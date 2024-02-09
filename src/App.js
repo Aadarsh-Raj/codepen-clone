@@ -20,17 +20,14 @@ import Editor from "./Components/EditorPage";
 import { UserContext, UserFunction } from "./Context/UserContext";
 import ProfilePage from "./Components/ProfilePage";
 import Signup from "./Components/Signup";
+
+
+
+
 function App() {
   const userCtx = UserFunction();
-  const navigate = useNavigate();
-  function PrivateRoute({ element, authenticated, fallbackPath }) {
-  return authenticated ? (
-    element
-  ) : (
-    <Navigate to={fallbackPath} replace state={{ from: fallbackPath }} />
-  );
-}
-
+ 
+ 
   const router = createBrowserRouter([
     {
       path: "/",
@@ -54,8 +51,8 @@ function App() {
     },
     {
       path:"/profile",
-      element:<ProfilePage />
-    }
+      element:<ProfilePage />,
+    },
   ]);
 
   return (
@@ -63,12 +60,12 @@ function App() {
       <UserContext>
 
       <main className="main">
-          <Sidebar />
-        <section className="main-right-container">
           <RouterProvider router={router}>
+        <section className="main-right-container">
+          
             <Outlet />
-          </RouterProvider>
         </section>
+          </RouterProvider>
       </main>
       </UserContext>
       

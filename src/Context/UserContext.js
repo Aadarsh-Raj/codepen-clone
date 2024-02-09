@@ -14,17 +14,18 @@ const UserContext = ({children})=>{
     const [output, setOutputValue] = useState("");
     const [user, setUser]= useState(false);
     const [toggleSidebar, setToggleSidebar] = useState(false);
+    const [displayName, setDisplayName] = useState("User");
   useEffect(()=>{
     onAuthStateChanged(auth, (user)=>{
       if(user){
-        console.log(user, "logged in");
         setUser(true);
+        setDisplayName(user.displayName);
       }else{
         console.log(user, "logged Out");
         setUser(false);
       }
     });
-  },[auth]);
+  },[UserFunction]);
  
     const functionObject ={
         htmlValue,
@@ -38,7 +39,9 @@ const UserContext = ({children})=>{
        user, 
        setUser,
        toggleSidebar,
-       setToggleSidebar
+       setToggleSidebar,
+       displayName,
+       setDisplayName
     };
     
     return (

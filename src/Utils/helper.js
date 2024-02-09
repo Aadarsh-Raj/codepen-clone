@@ -39,7 +39,7 @@ export const logoutUser = async ()=>{
 
     try{
         await signOut(auth);
-        alert("Your are logged In");
+        alert("Your are logged Out");
     }catch(err){
         alert("Something Went Wrong");
     }

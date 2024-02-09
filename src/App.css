@@ -3,13 +3,10 @@
   height: 100vh;
   background-color: #131417 ;
   display: flex;
+  flex-direction: column;
   position: relative;
 }
-.main-left-container{
-  width: 200px;
-  transform: translateX(-100%);
-  transition: transform 1s ease-in-out;
-}
+
 .main-right-container{
   display: flex;
   flex-direction: column;
