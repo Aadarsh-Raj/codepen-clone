@@ -8,14 +8,23 @@ import { Link, useNavigate } from "react-router-dom";
 import SearchBar from "./SearchBar";
 const Login = () => {
   const navigate = useNavigate();
-
+const signInWithButton = async ()=>{
+  try {
+    await signInWithGoogle();
+    navigate("/editor");
+  } catch (error) {
+    console.log(error);
+    alert("Something went wrong");
+    navigate("/login");
+  }
+}
  async function logInWithEmailId(e) {
     e.preventDefault();
     const email = e.target.children[0].value;
     const password = e.target.children[1].value;
     try {
       await  signInWithEmail(email, password);
-   await navigate("/home");
+    navigate("/");
     } catch (error) {
         console.log(error);
         navigate("/")
@@ -27,7 +36,7 @@ const Login = () => {
       <SearchBar />
       <div className="login-container">
         <div className="oneclicklogin">
-          <button className="submit-btn" onClick={signInWithGoogle}>
+          <button className="submit-btn" onClick={signInWithButton}>
             <GoogleIcon /> Log In with Google
           </button>
         </div>

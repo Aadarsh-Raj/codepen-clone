@@ -7,6 +7,15 @@ import Footer from "./Footer";
 import { useNavigate } from "react-router-dom";
 const Signup = () => {
   const navigate = useNavigate();
+  const signUpWithButton = async ()=>{
+try {
+  await signInWithGoogle();
+  navigate("/editor")
+} catch (error) {
+  console.log(error);
+  alert("Something went wrong");
+}
+  }
   async function signUpWithEmailId(e) {
     e.preventDefault();
     const email = e.target.children[0].value;
@@ -29,7 +38,7 @@ const Signup = () => {
       <SearchBar />
       <div className="login-container">
         <div className="oneclicklogin">
-          <button className="submit-btn" onClick={signInWithGoogle}>
+          <button className="submit-btn" onClick={signUpWithButton}>
             <GoogleIcon /> Log In with Google
           </button>
         </div>
