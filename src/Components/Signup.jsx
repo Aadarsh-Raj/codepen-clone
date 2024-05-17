@@ -2,12 +2,12 @@ import React from "react";
 import SearchBar from "./SearchBar";
 import "./Style/login.css";
 import { ReactComponent as GoogleIcon } from "../Assests/googleicon.svg";
-// import { signInWithGoogle, signUPWithEmail } from "../Utils/helper";
+import { signInWithGoogle, signUPWithEmail } from "../Utils/helper";
 import Footer from "./Footer";
 import { useNavigate } from "react-router-dom";
 const Signup = () => {
   const navigate = useNavigate();
-  function signUpWithEmailId(e) {
+  async function signUpWithEmailId(e) {
     e.preventDefault();
     const email = e.target.children[0].value;
     const password = e.target.children[1].value;
@@ -16,8 +16,12 @@ const Signup = () => {
       alert("Please Match Your Password");
       return;
     } else {
-    //   signUPWithEmail(email, password);
-      navigate("/home");
+      try {
+       await signUPWithEmail(email, password);
+        navigate("/home");
+      } catch (error) {
+        console.log(error);
+      }
     }
   }
   return (
@@ -25,7 +29,7 @@ const Signup = () => {
       <SearchBar />
       <div className="login-container">
         <div className="oneclicklogin">
-          <button className="submit-btn" onClick={""}>
+          <button className="submit-btn" onClick={signInWithGoogle}>
             <GoogleIcon /> Log In with Google
           </button>
         </div>

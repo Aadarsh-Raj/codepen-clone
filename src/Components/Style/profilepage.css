@@ -1,0 +1,24 @@
+.profile-container{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+}
+.profile-inner-container{
+width: 30%;
+border: 2px solid;
+margin: auto;
+height: 100%;
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+align-items: center;
+padding: 2rem;
+}
+.profile-inner-container button{
+padding: 1rem;
+background-color: transparent;
+
+}

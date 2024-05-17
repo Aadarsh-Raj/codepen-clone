@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
-
+import {auth, onAuthStateChanged } from "../Config/firebase.config";
 const UserContextController = createContext({});
 
 export const UserFunction = () => {
@@ -14,17 +14,17 @@ const UserContext = ({ children }) => {
   const [user, setUser] = useState(false);
   const [toggleSidebar, setToggleSidebar] = useState(false);
   const [displayName, setDisplayName] = useState("User");
-  //   useEffect(()=>{
-  //     onAuthStateChanged(auth, (user)=>{
-  //       if(user){
-  //         setUser(true);
-  //         setDisplayName(user.displayName);
-  //       }else{
-  //         console.log(user, "logged Out");
-  //         setUser(false);
-  //       }
-  //     });
-  //   },[UserFunction]);
+    useEffect(()=>{
+      onAuthStateChanged(auth, (user)=>{
+        if(user){
+          setUser(true);
+          setDisplayName(user.displayName);
+        }else{
+          console.log(user, "logged Out");
+          setUser(false);
+        }
+      });
+    },[UserFunction]);
 
   const functionObject = {
     htmlValue,

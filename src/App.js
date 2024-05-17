@@ -5,12 +5,17 @@ import Home from "./Components/Home";
 import Login from "./Components/Login";
 import Signup from "./Components/Signup";
 import Editor from "./Components/Editor";
+import ProfilePage from "./Components/ProfilePage";
 
 function App() {
   const router = createBrowserRouter([
     {
       path: "/",
       element: <Home />,
+    },
+    {
+      path:"/home",
+      element:<Home />
     },
     {
       path: "/login",
@@ -26,7 +31,7 @@ function App() {
     },
     {
       path: "/profile",
-      // element:<ProfilePage />,
+      element:<ProfilePage />,
     },
   ]);
   return (
