@@ -1,0 +1,74 @@
+.login-container {
+    display: flex;
+   
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    padding: 5rem;
+    background:rgba(19, 20, 23, 0.4) url("http://simpleicon.com/wp-content/uploads/rocket.svg") repeat center center;
+}
+
+.oneclicklogin {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+ .submit-btn {
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  padding: 1rem 1.8rem;
+  gap: 1rem;
+  font-weight: bolder;
+  width: max-content;
+}
+.submit-btn:hover{
+    background-color: #3c3f47a4;
+}
+.oneclicklogin button svg {
+  height: 2rem;
+  width: 2rem;
+}
+.or-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: rotate(90deg);
+}
+.or-container .or-para {
+  transform: rotate(-90deg);
+  padding: 1rem;
+  border: 2px solid;
+  margin: 0.6rem;
+}
+.or-container hr {
+  color: white;
+  width: 200px;
+}
+.formlogin-container {
+  border: 2px solid;
+  display: flex;
+  flex-direction: column;
+  padding: 4rem 2rem;
+  gap: 1rem;
+  text-align: center;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}
+
+.login-form input {
+  padding: 0.8rem 3rem 1rem 0.6rem;
+  border-radius: 0.4rem;
+  color: gray;
+  font-weight: bolder;
+}
+.forgetpass-para {
+  color: red;
+  cursor: pointer;
+  text-decoration: underline;
+}

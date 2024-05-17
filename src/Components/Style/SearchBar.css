@@ -1,0 +1,28 @@
+.search-bar-container{
+    display: flex;
+    padding: 2rem;
+    justify-content: space-between;
+    align-items: center;
+    gap: 4rem;
+}
+.search-bar-logo{
+    width: 15%;
+}
+.search-bar-form{
+    display: flex;
+    flex-grow: 2;
+}
+.input-search{
+    padding: 0.5rem;
+    width: 100%;
+    border-radius: 0.6rem;
+    background-color: transparent;
+    color: whitesmoke;
+    text-align: center;
+}
+
+@media screen and (max-width:900px) {
+    .search-bar-logo{
+        width: 20% ;
+    }
+}
