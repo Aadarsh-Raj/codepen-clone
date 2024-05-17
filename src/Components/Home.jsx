@@ -7,6 +7,7 @@ import { UserFunction } from "../Context/UserContext";
 import Sidebar from "./Sidebar";
 const Home = () => {
   const userCtx = UserFunction();
+  console.log(userCtx.user)
   return (
     <>
       <div className="home">
@@ -14,11 +15,11 @@ const Home = () => {
         <div className="home-page-header">
           <SearchBar />
         </div>
-        <div style={{ textAlign: "center" }}>
+        <div className="home-content" style={{ textAlign: "center" }}>
           {!userCtx.user ? (
             <div> Please Log in to use Editor </div>
           ) : (
-            <div> Thanks for using us, {userCtx.displayName} </div>
+            <div>Hello <span>{userCtx.displayName}</span>, Thanks For Using our website </div>
           )}
         </div>
         <footer>

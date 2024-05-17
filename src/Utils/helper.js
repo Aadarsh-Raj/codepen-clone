@@ -1,5 +1,4 @@
 import {
-  GoogleAuthProvider,
   signInWithPopup,
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
@@ -12,8 +11,7 @@ export const signUPWithEmail = async (email, password) => {
     await createUserWithEmailAndPassword(auth, email, password);
   } catch (error) {
     alert("Something Went Wrong");
-    console.log(error)
-
+    console.log(error);
   }
 };
 // sign in with email

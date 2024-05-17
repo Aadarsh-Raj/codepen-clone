@@ -14,8 +14,13 @@ const ProfilePage = () => {
   return (
     <div className="profile-container">
       <div className="profile-inner-container">
-        <h2>Hello {userCtx.displayName}</h2>
-
+        <div className="profile-image-container">
+          <img src={userCtx.profileUrl} alt="User Profile" />
+        </div>
+        <div className="profile-more-details">
+        <p><span>Name:</span> {userCtx.displayName}</p>
+        <p><span>Email:</span> {userCtx.userEmail}</p>
+        </div>
         <div className="logout-btn">
           <button onClick={logOut}>Log Out</button>
         </div>

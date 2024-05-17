@@ -1,7 +1,10 @@
-.home{
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 100vw;
+.home {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100vw;
+}
+.home-content span {
+  font-weight: bolder;
 }
