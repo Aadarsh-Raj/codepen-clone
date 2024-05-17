@@ -1,38 +1,38 @@
 import React, { useEffect } from "react";
 import "./Style/login.css";
 import { ReactComponent as GoogleIcon } from "../Assests/googleicon.svg";
-import { ReactComponent as Icon } from "../Assests/icon.svg";
 import Footer from "./Footer";
 import { signInWithGoogle, signInWithEmail } from "../Utils/helper";
 import { Link, useNavigate } from "react-router-dom";
 import SearchBar from "./SearchBar";
 const Login = () => {
   const navigate = useNavigate();
-const signInWithButton = async ()=>{
-  try {
-    await signInWithGoogle();
-    navigate("/editor");
-  } catch (error) {
-    console.log(error);
-    alert("Something went wrong");
-    navigate("/login");
-  }
-}
- async function logInWithEmailId(e) {
+  const signInWithButton = async () => {
+    try {
+      await signInWithGoogle();
+      navigate("/editor");
+    } catch (error) {
+      console.log(error);
+      alert("Something went wrong");
+      navigate("/login");
+    }
+  };
+  async function logInWithEmailId(e) {
     e.preventDefault();
     const email = e.target.children[0].value;
     const password = e.target.children[1].value;
     try {
-      await  signInWithEmail(email, password);
-    navigate("/");
+      await signInWithEmail(email, password);
+      navigate("/");
     } catch (error) {
-        console.log(error);
-        navigate("/")
+      console.log(error);
+      navigate("/");
     }
   }
 
   return (
     <>
+      <div className="login-page-container">
       <SearchBar />
       <div className="login-container">
         <div className="oneclicklogin">
@@ -64,6 +64,7 @@ const signInWithButton = async ()=>{
       <footer>
         <Footer />
       </footer>
+      </div>
     </>
   );
 };

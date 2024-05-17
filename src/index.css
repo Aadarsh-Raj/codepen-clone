@@ -24,7 +24,9 @@ code {
     monospace;
 }
 
-
+body{
+  background-color: #131417;
+}
 
 .Resizer {
   background: #fffdfd;

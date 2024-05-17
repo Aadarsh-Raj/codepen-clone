@@ -4,7 +4,7 @@ import "./Style/login.css";
 import { ReactComponent as GoogleIcon } from "../Assests/googleicon.svg";
 import { signInWithGoogle, signUPWithEmail } from "../Utils/helper";
 import Footer from "./Footer";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 const Signup = () => {
   const navigate = useNavigate();
   const signUpWithButton = async ()=>{
@@ -35,6 +35,7 @@ try {
   }
   return (
     <>
+      <div className="login-page-container">
       <SearchBar />
       <div className="login-container">
         <div className="oneclicklogin">
@@ -59,11 +60,13 @@ try {
             <input type="password" placeholder="Enter Password Again" />
             <button className="submit-btn">Submit</button>
           </form>
+            <div className="already-user-para">Already User? <span><Link to="/login">Click here</Link></span></div>
         </div>
       </div>
       <footer>
         <Footer />
       </footer>
+      </div>
     </>
   );
 };
