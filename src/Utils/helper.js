@@ -8,9 +8,9 @@ import { auth, googleProvider } from "../Config/firebase.config";
 // sign up with email
 export const signUPWithEmail = async (email, password) => {
   try {
-    await createUserWithEmailAndPassword(auth, email, password);
+   const response = await createUserWithEmailAndPassword(auth, email, password);
+   return response;
   } catch (error) {
-    alert("Something Went Wrong");
     console.log(error);
   }
 };
@@ -18,19 +18,19 @@ export const signUPWithEmail = async (email, password) => {
 
 export const signInWithEmail = async (email, password) => {
   try {
-    await signInWithEmailAndPassword(auth, email, password);
-    alert("You are logged In successfully.");
-  } catch (err) {
-    alert("Something Went Wrong");
+   const response = await signInWithEmailAndPassword(auth, email, password);
+   return response;
+  } catch (error) {
+    console.log(error);
   }
 };
 // sign in with google
 export const signInWithGoogle = async () => {
   try {
-    await signInWithPopup(auth, googleProvider);
-    alert("You are logged In successfully.");
+   const response = await signInWithPopup(auth, googleProvider);
+return response;
   } catch (error) {
-    alert("Something Went Wrong");
+    console.log(error);
   }
 };
 // logout user

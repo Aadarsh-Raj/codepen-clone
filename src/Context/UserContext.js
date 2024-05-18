@@ -20,6 +20,7 @@ const UserContext = ({ children }) => {
     useEffect(()=>{
       onAuthStateChanged(auth, (user)=>{
         if(user){
+          console.log(user)
           setUser(true);
           setDisplayName(user.displayName);
           user.photoURL && setProfileUrl(user.photoURL);
