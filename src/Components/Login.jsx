@@ -13,12 +13,16 @@ const Login = () => {
     try {
       const response = await signInWithGoogle();
       await userCtx.setUser(response.user);
+      await userCtx.setDialogMessage("You are logged in");
+      await userCtx.setDialogAppear(true);
       navigate("/");
     } catch (error) {
-      alert("Something went wrong");
+      userCtx.setDialogMessage("Something went wrong");
+      userCtx.setDialogAppear(true);
       navigate("/login");
     }
   };
+
   async function logInWithEmailId(e) {
     e.preventDefault();
     const email = e.target.children[0].value;
@@ -27,10 +31,13 @@ const Login = () => {
       const response = await signInWithEmail(email, password);
       console.log(response);
       await userCtx.setUser(response.user);
+      await userCtx.setDialogMessage("You are logged in");
+      await userCtx.setDialogAppear(true);
       navigate("/");
     } catch (error) {
       console.log(error);
-      alert("Something went wrong");
+      userCtx.setDialogMessage("Something went wrong");
+      userCtx.setDialogAppear(true);
       navigate("/");
     }
   }

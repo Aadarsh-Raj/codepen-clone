@@ -7,8 +7,10 @@ import { useNavigate } from "react-router-dom";
 const ProfilePage = () => {
   const navigate = useNavigate();
   const userCtx = UserFunction();
-  function logOut() {
-    logoutUser();
+ async function logOut() {
+   await logoutUser();
+   await userCtx.setDialogMessage("You are logged out");
+  await  userCtx.setDialogAppear(true);
     navigate("/home");
   }
   return (

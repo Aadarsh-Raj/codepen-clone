@@ -36,9 +36,9 @@ return response;
 // logout user
 export const logoutUser = async () => {
   try {
-    await signOut(auth);
-    alert("Your are logged Out");
+   const response = await signOut(auth);
+   return response;
   } catch (err) {
-    alert("Something Went Wrong");
+    console.log(err);
   }
 };

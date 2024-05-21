@@ -7,7 +7,7 @@ import { UserFunction } from "../Context/UserContext";
 import Sidebar from "./Sidebar";
 const Home = () => {
   const userCtx = UserFunction();
-  console.log(userCtx.user)
+  console.log(userCtx.dialogAppear, userCtx.dialogMessage);
   return (
     <>
       <div className="home">
