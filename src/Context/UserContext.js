@@ -12,6 +12,7 @@ const UserContext = ({ children }) => {
   const [jsValue, setJsValue] = useState("");
   const [output, setOutputValue] = useState("");
   const [user, setUser] = useState(false);
+  const [title, setTitle] = useState("Add Title");
   const [toggleSidebar, setToggleSidebar] = useState(false);
   const [dialogAppear, setDialogAppear] = useState(false);
   const [progress, setProgress] = useState(0);
@@ -61,6 +62,8 @@ const UserContext = ({ children }) => {
     setDialogAppear,
     dialogMessage,
     setDialogMessage,
+    title,
+    setTitle,
   };
 
   return (

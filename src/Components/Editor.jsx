@@ -1,14 +1,21 @@
-import React, { useEffect } from "react";
-// import Split from "react-split";
-// import MonacoEditor from "react-monaco-editor";
+import React, { useEffect, useState } from "react";
+
 import SplitPane from "react-split-pane";
 import "./Style/editor.css";
 import LanguageEditor from "./LanguageEditor";
 import { UserFunction } from "../Context/UserContext.js";
+import Sidebar from "./Sidebar.jsx";
+import Tabs from "@mui/material/Tabs";
+import Tab from "@mui/material/Tab";
+import Box from "@mui/material/Box";
 
 const Editor = () => {
   const userCtx = UserFunction();
-console.log(userCtx);
+  const [activeTab, setActiveTab] = useState(0);
+
+  const handleTabChange = (event, newValue) => {
+    setActiveTab(newValue);
+  };
   useEffect(() => {
     updateOutput();
   }, [userCtx.htmlValue, userCtx.cssValue, userCtx.jsValue]);
@@ -28,7 +35,6 @@ console.log(userCtx);
     userCtx.setOutputValue(combinedOutput);
   };
   const updateEditorValue = (language, value) => {
-   
     if (language === "HTML") {
       userCtx.setHtmlValue(value);
     } else if (language === "CSS") {
@@ -40,6 +46,7 @@ console.log(userCtx);
 
   return (
     <>
+      <Sidebar />
       <div className="editor">
         <SplitPane
           split="horizontal"
@@ -87,6 +94,73 @@ console.log(userCtx);
             />
           </div>
         </SplitPane>
+      </div>
+
+      <div className="editor-mobile">
+        <Box sx={{ width: "100%" }}>
+          <Tabs value={activeTab} onChange={handleTabChange} centered>
+            <Tab
+              label="HTML"
+              sx={{ color: activeTab === 0 ? "white" : "white" }}
+            />
+            <Tab
+              label="CSS"
+              sx={{ color: activeTab === 1 ? "white" : "white" }}
+            />
+            <Tab
+              label="JS"
+              sx={{ color: activeTab === 2 ? "white" : "white" }}
+            />
+            <Tab
+              label="Result"
+              sx={{ color: activeTab === 2 ? "white" : "white" }}
+            />
+          </Tabs>
+          <Box sx={{ p: 3 }}>
+            {activeTab === 0 && (
+              <div className="single-editor">
+                <LanguageEditor
+                  languageTitle="HTML"
+                  callUpdateFunction={(language, value) => {
+                    updateEditorValue(language, value);
+                  }}
+                />
+              </div>
+            )}
+            {activeTab === 1 && (
+              <div className="single-editor">
+                <LanguageEditor
+                  languageTitle="CSS"
+                  callUpdateFunction={(language, value) => {
+                    updateEditorValue(language, value);
+                  }}
+                />
+              </div>
+            )}
+            {activeTab === 2 && (
+              <div className="single-editor">
+                <LanguageEditor
+                  languageTitle="JS"
+                  callUpdateFunction={(language, value) => {
+                    updateEditorValue(language, value);
+                  }}
+                />
+              </div>
+            )}
+            {activeTab === 3 && (
+              <div
+                className="output-container"
+                style={{ backgroundColor: "white" }}
+              >
+                <iframe
+                  title="Result"
+                  srcDoc={userCtx.output}
+                  style={{ border: "none", width: "100%", height: "100%" }}
+                />
+              </div>
+            )}
+          </Box>
+        </Box>
       </div>
     </>
   );

@@ -8,7 +8,23 @@
     background-color: black;
     padding:0.7rem 1rem;
 }
-
+.title-input{
+    position: relative;
+    width: 100px;
+    overflow: hidden;
+}
+.title-input input{
+  border: none; 
+  background: transparent; 
+  width: min-content;
+  outline: none;
+  visibility: none;
+  position: absolute;
+  left: 0;
+  color: transparent;
+  cursor: pointer;
+  width: inherit;
+}
 .language-heading svg{
     height: 20px;
     

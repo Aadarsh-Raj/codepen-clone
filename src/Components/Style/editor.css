@@ -1,9 +1,30 @@
 .editor{
     height: 100vh;
+
 }
 .output-container{
     height: 100%;
 }
 .output-container>div{
     height: 100%;
+}
+.editor-mobile{
+    display: none;
+}
+
+@media screen and (max-width:900px){
+    .editor{
+        display: none;
+    }
+    .editor-mobile{
+        display: initial;
+    }
+    .single-editor{
+        height: 80vh;
+        background-color: black;
+        overflow-y: scroll;
+    }
+    .output-container{
+        height: 85vh;
+    }
 }
