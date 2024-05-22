@@ -7,7 +7,6 @@ const Sidebar = () => {
   const userCtx = UserFunction();
   function hideSidebar() {
     userCtx.setToggleSidebar((prevValue) => {
-      console.log(prevValue);
       if (prevValue) {
         return false;
       } else {

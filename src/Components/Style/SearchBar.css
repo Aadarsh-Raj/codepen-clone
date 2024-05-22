@@ -15,6 +15,7 @@
 .search-bar-form{
     display: flex;
     flex-grow:2;
+    position: relative;
 }
 .input-search{
     padding: 0.5rem;
@@ -24,16 +25,30 @@
     color: whitesmoke;
     text-align: center;
 }
+.search-list{
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.808);
+    width: 100%;
+    list-style: none;
+    border-radius: 0 0 1rem 1rem;
+    top: 2.5rem;
+}
+
+.search-list li{
+    padding: 1rem;
+    text-transform: capitalize;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.564);
+}
+
 
 @media screen and (max-width:550px) {
     .search-bar-container{
         padding: 2rem 1rem;
     }
     .search-bar-logo{
-        width: 100% ;
+        width: 80% ;
     }
     .search-bar-form{
-      width: 110%;
-    }
-    
+      width: 120%;
+    }   
 }

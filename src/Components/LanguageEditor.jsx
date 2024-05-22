@@ -5,6 +5,7 @@ import { javascript } from "@codemirror/lang-javascript";
 import { UserFunction } from "../Context/UserContext";
 import { app } from "../Config/firebase.config";
 import { getDatabase, ref, set, push } from "firebase/database";
+import { v4 as uuidv4 } from 'uuid';
 const LanguageEditor = (props) => {
   const [svg, setSvg] = useState("");
   const userCtx = UserFunction();
@@ -70,6 +71,7 @@ const LanguageEditor = (props) => {
     const db = getDatabase(app);
     const newDocRef = push(ref(db, "code"));
     set(newDocRef, {
+      id:uuidv4(),
       title: userCtx.title,
       code: userCtx.output,
     })

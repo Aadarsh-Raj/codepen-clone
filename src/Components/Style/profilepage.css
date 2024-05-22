@@ -17,17 +17,17 @@
   align-items: center;
   padding: 2rem;
 }
-.profile-more-details{
-    display: flex;
-    flex-direction: column;
-    gap: 0.8rem;
+.profile-more-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
 }
 .profile-more-details p {
   width: 100%;
   letter-spacing: 1px;
 }
-.profile-more-details p span{
-    font-weight: bolder;
+.profile-more-details p span {
+  font-weight: bolder;
 }
 .profile-image-container {
   text-align: center;
@@ -36,13 +36,45 @@
   border-radius: 1.3rem;
   max-width: 6.25rem;
 }
+.creations-container {
+  display: flex;
+  gap: 1.5rem;
+  width: 100%;
+  padding: 0 1.5rem;
+  justify-content: start;
+  padding-left: 3rem;
+}
+.creations-container ul {
+  list-style: none;
+  background-color: black;
+  border-radius: 0.4rem;
+  overflow: scroll;
+  max-height: 150px;
+  width: 100%;
+}
+.creations-container ul li {
+  padding: 0.7rem 1.5rem;
+  border-bottom: 2px solid gray;
+}
+
 .profile-inner-container button {
   padding: 1rem;
   background-color: transparent;
 }
 
+@media screen and (max-width: 1000px) {
+  .profile-inner-container {
+    width: 50%;
+  }
+}
 @media screen and (max-width: 900px) {
   .profile-inner-container {
-    width: 80%;
+    width: 60%;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .profile-inner-container {
+    width: 90%;
   }
 }

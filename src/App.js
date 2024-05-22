@@ -7,6 +7,7 @@ import Editor from "./Components/Editor";
 import ProfilePage from "./Components/ProfilePage";
 import DialogueBox from "./Components/DialogueBox";
 import { UserFunction } from "./Context/UserContext";
+import LinksEditor from "./Components/LinksEditor";
 function App() {
   const router = createBrowserRouter([
     {
@@ -32,8 +33,11 @@ function App() {
     {
       path: "/profile",
       element: <ProfilePage />,
+    },
+    {
+      path:"/editor/:id",
+      element: <LinksEditor />
     }
-
   ]);
 
   const userCtx = UserFunction();

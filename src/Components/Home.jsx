@@ -5,9 +5,9 @@ import { Link } from "react-router-dom";
 import SearchBar from "./SearchBar";
 import { UserFunction } from "../Context/UserContext";
 import Sidebar from "./Sidebar";
+import UploadedCodesContainer from "./UploadedCodesContainer";
 const Home = () => {
   const userCtx = UserFunction();
-  console.log(userCtx.dialogAppear, userCtx.dialogMessage);
   return (
     <>
       <div className="home">
@@ -19,9 +19,16 @@ const Home = () => {
           {!userCtx.user ? (
             <div> Please Log in to use Editor </div>
           ) : (
-            <div>Hello <span>{userCtx.displayName}</span>, Thanks For Using our website </div>
+            <div>
+              Hello <span>{userCtx.displayName}</span>, Thanks For Using our
+              website{" "}
+            </div>
           )}
         </div>
+        {
+          userCtx.user && (<UploadedCodesContainer />)
+        }
+        
         <footer>
           <Footer />
         </footer>

@@ -16,6 +16,7 @@ const UserContext = ({ children }) => {
   const [toggleSidebar, setToggleSidebar] = useState(false);
   const [dialogAppear, setDialogAppear] = useState(false);
   const [progress, setProgress] = useState(0);
+  const [codeArray, setCodeArray] = useState([]);
   const [dialogMessage, setDialogMessage] = useState(
     "Welcome to Arya-codepen-clone"
   );
@@ -27,7 +28,6 @@ const UserContext = ({ children }) => {
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
-        console.log(user);
         setUser(true);
         setDisplayName(user.displayName);
         user.photoURL && setProfileUrl(user.photoURL);
@@ -64,6 +64,8 @@ const UserContext = ({ children }) => {
     setDialogMessage,
     title,
     setTitle,
+    codeArray,
+    setCodeArray,
   };
 
   return (

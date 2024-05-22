@@ -1,0 +1,11 @@
+.code-uploaded-container{
+    display: flex;
+    gap: 2.5rem;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 1.5rem;
+    padding: 1rem;
+}
+
+
